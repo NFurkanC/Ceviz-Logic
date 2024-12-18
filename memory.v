@@ -8,6 +8,10 @@ module memory(
 
 reg [31:0] mem [511:0];
 
+initial begin
+    $readmemh("program.mem", mem);
+end
+
 assign data_o = mem[addr_i[31:2]];
 
 always @(posedge clk_i) begin
